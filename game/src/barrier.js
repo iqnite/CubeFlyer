@@ -35,7 +35,10 @@ class Barrier extends GameObject {
 		// Update the players physics:
 		this.ceilingBox.position.x = this.location;
 		this.floorBox.position.x = this.location;
-
+		
+		if (this.location < 0 && this.location > -deltaTime * obstacleSpeed) {
+			addScore(1);
+		}
 		if (this.location < -25) {
 			destroyObject(this);
 		}

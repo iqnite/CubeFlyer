@@ -107,7 +107,17 @@ class MainMenu extends GameObject {
 		this.greetingText.verticalAlignment = BABYLON.GUI.TextBlock.VERTICAL_ALIGNMENT_TOP;
 		this.greetingText.horizontalAlignment = BABYLON.GUI.TextBlock.HORIZONTAL_ALIGNMENT_CENTER;
 		this.greetingText.width = 0.5;
-		this.greetingText.height = 0.7;
+		this.greetingText.height = 0.8;
+
+		this.highScoreText = new BABYLON.GUI.TextBlock();
+		this.highScoreText.text = "High score: " + highScore;
+		this.highScoreText.fontFamily = "Impact";
+		this.highScoreText.color = "white";
+		this.highScoreText.fontSize = 30;
+		this.highScoreText.verticalAlignment = BABYLON.GUI.TextBlock.VERTICAL_ALIGNMENT_TOP;
+		this.highScoreText.horizontalAlignment = BABYLON.GUI.TextBlock.HORIZONTAL_ALIGNMENT_CENTER;
+		this.highScoreText.width = 0.5;
+		this.highScoreText.height = 1;
 
 		this.instructionsText = new BABYLON.GUI.TextBlock();
 		this.instructionsText.text = "press any key to play";
@@ -117,16 +127,18 @@ class MainMenu extends GameObject {
 		this.instructionsText.verticalAlignment = BABYLON.GUI.TextBlock.VERTICAL_ALIGNMENT_TOP;
 		this.instructionsText.horizontalAlignment = BABYLON.GUI.TextBlock.HORIZONTAL_ALIGNMENT_CENTER;
 		this.instructionsText.width = 0.5;
-		this.instructionsText.height = 0.9;
+		this.instructionsText.height = 1.2;
 
 		this.hudTexture.addControl(this.welcomeText);
 		this.hudTexture.addControl(this.greetingText);
+		this.hudTexture.addControl(this.highScoreText);
 		this.hudTexture.addControl(this.instructionsText);
 	}
 
 	hideUI() {
 		this.hudTexture.removeControl(this.welcomeText);
 		this.hudTexture.removeControl(this.greetingText);
+		this.hudTexture.removeControl(this.highScoreText);
 		this.hudTexture.removeControl(this.instructionsText);
 	}
 }

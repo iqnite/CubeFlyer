@@ -1,5 +1,6 @@
 var obstacleSpeed = 1.5; // Changing this will impact how quickly obstacles in the game move.
-var gapSize = 3; // This determines the size of the gap to create between the floor and ceiling.
+var ySpeed = 0.5; // Changing this will impact how quickly the obstacles tighten.
+var gapSize = 13; // This determines the size of the gap to create between the floor and ceiling.
 
 class Barrier extends GameObject {
 	constructor() {
@@ -35,6 +36,8 @@ class Barrier extends GameObject {
 		// Update the players physics:
 		this.ceilingBox.position.x = this.location;
 		this.floorBox.position.x = this.location;
+		this.ceilingBox.position.y -= deltaTime * ySpeed;
+		this.floorBox.position.y += deltaTime * ySpeed;
 		
 		if (this.location < 0 && this.location > -deltaTime * obstacleSpeed) {
 			addScore(1);

@@ -1,4 +1,5 @@
 var score = 0;
+var highScore = localStorage.getItem("highScore") || 0;
 var scoreText;
 
 var createHud = function () {
@@ -32,4 +33,8 @@ var resetScore = function () {
 var addScore = function (points) {
 	score += points;
 	updateScoreText();
+	if (score > highScore) {
+		highScore = score;
+		localStorage.setItem("highScore", highScore);
+	}
 };

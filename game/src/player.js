@@ -32,6 +32,7 @@ class Player extends GameObject {
 		this.velocity.y += gravity.y * deltaTime;
 		this.capVelocity(20);
 		this.playerMesh.position.y += this.velocity.y * deltaTime;
+		this.teleport();
 		if (this.testGameOver()) {
 			this.endGame();
 		}
@@ -56,8 +57,6 @@ class Player extends GameObject {
 	}
 
 	testGameOver() {
-		let outOfBounds = this.playerMesh.position.y > gameHeight || this.playerMesh.position.y < -gameHeight;
-
 		let collision = testMatchingObjects(
 			(gameObject) => gameObject.testCollision !== undefined,
 			(gameObject) => gameObject.testCollision(this.playerMesh.position.y)
@@ -67,7 +66,14 @@ class Player extends GameObject {
 			console.log("IMPACT");
 		}
 
-		return outOfBounds || collision;
+		return collision;
+	}
+
+	teleport() {
+		let outOfBounds = this.playerMesh.position.y > gameHeight || this.playerMesh.position.y < -gameHeight;
+		if (outOfBounds) {
+			this.playerMesh.position.y = -1 * this.playerMesh.position.y;
+		}
 	}
 
 	onPlayerFlight() {

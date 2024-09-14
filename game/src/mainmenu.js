@@ -90,9 +90,9 @@ class MainMenu extends GameObject {
 
 		// Create a Text Block that can display the current score
 		this.welcomeText = new BABYLON.GUI.TextBlock();
-		this.welcomeText.text = "Flying Cube Game!";
+		this.welcomeText.text = "Flying Ball Game!";
 		this.welcomeText.fontFamily = "Impact";
-		this.welcomeText.color = "white";
+		this.welcomeText.color = "black";
 		this.welcomeText.fontSize = 72;
 		this.welcomeText.verticalAlignment = BABYLON.GUI.TextBlock.VERTICAL_ALIGNMENT_TOP;
 		this.welcomeText.horizontalAlignment = BABYLON.GUI.TextBlock.HORIZONTAL_ALIGNMENT_CENTER;
@@ -102,7 +102,7 @@ class MainMenu extends GameObject {
 		this.greetingText = new BABYLON.GUI.TextBlock();
 		this.greetingText.text = greeting;
 		this.greetingText.fontFamily = "Impact";
-		this.greetingText.color = "white";
+		this.greetingText.color = "black";
 		this.greetingText.fontSize = 28;
 		this.greetingText.verticalAlignment = BABYLON.GUI.TextBlock.VERTICAL_ALIGNMENT_TOP;
 		this.greetingText.horizontalAlignment = BABYLON.GUI.TextBlock.HORIZONTAL_ALIGNMENT_CENTER;
@@ -112,7 +112,7 @@ class MainMenu extends GameObject {
 		this.highScoreText = new BABYLON.GUI.TextBlock();
 		this.highScoreText.text = "High score: " + highScore;
 		this.highScoreText.fontFamily = "Impact";
-		this.highScoreText.color = "white";
+		this.highScoreText.color = "#a59d00";
 		this.highScoreText.fontSize = 30;
 		this.highScoreText.verticalAlignment = BABYLON.GUI.TextBlock.VERTICAL_ALIGNMENT_TOP;
 		this.highScoreText.horizontalAlignment = BABYLON.GUI.TextBlock.HORIZONTAL_ALIGNMENT_CENTER;
@@ -122,7 +122,7 @@ class MainMenu extends GameObject {
 		this.instructionsText = new BABYLON.GUI.TextBlock();
 		this.instructionsText.text = "press any key to play";
 		this.instructionsText.fontFamily = "Impact";
-		this.instructionsText.color = "#aafffa";
+		this.instructionsText.color = "#005994";
 		this.instructionsText.fontSize = 32;
 		this.instructionsText.verticalAlignment = BABYLON.GUI.TextBlock.VERTICAL_ALIGNMENT_TOP;
 		this.instructionsText.horizontalAlignment = BABYLON.GUI.TextBlock.HORIZONTAL_ALIGNMENT_CENTER;
@@ -132,7 +132,7 @@ class MainMenu extends GameObject {
 		this.creditsText = new BABYLON.GUI.TextBlock();
 		this.creditsText.text = "Music: TheFatRat - Fire";
 		this.creditsText.fontFamily = "Impact";
-		this.creditsText.color = "white";
+		this.creditsText.color = "black";
 		this.creditsText.fontSize = 20;
 		this.creditsText.verticalAlignment = BABYLON.GUI.TextBlock.VERTICAL_ALIGNMENT_TOP;
 		this.creditsText.horizontalAlignment = BABYLON.GUI.TextBlock.HORIZONTAL_ALIGNMENT_CENTER;

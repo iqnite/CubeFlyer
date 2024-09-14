@@ -13,31 +13,31 @@ class Barrier extends GameObject {
 
 		// Creates 2 boxes which will be used for the top and bottom obstacles,
 		// the floor will obscure the height of the object so we don't need to modify this much.
-		const boxOptions = { width: 1, height: 10, depth: 1 };
-		this.ceilingBox = BABYLON.MeshBuilder.CreateBox("ceilingObstacle", boxOptions, scene);
-		this.floorBox = BABYLON.MeshBuilder.CreateBox("floorObstacle", boxOptions, scene);
+		const cylinderOptions = { diameter: 1, height: 10};
+		this.ceilingCylinder = BABYLON.MeshBuilder.CreateCylinder("ceilingObstacle", cylinderOptions, scene);
+		this.floorCylinder = BABYLON.MeshBuilder.CreateCylinder("floorObstacle", cylinderOptions, scene);
 		// Materials impact how an object is rendered like color, texture etc.
 		let barrierMaterial = new BABYLON.StandardMaterial("Barrier Material", scene);
 		barrierMaterial.diffuseColor = BABYLON.Color3.Green();
-		this.ceilingBox.material = barrierMaterial;
-		this.floorBox.material = barrierMaterial;
+		this.ceilingCylinder.material = barrierMaterial;
+		this.floorCylinder.material = barrierMaterial;
 		this.assignLocations();
 	}
 
 	onDestroy() {
 		// Remember when destroying an object to remove all meshes it creates from the scene!
-		scene.removeMesh(this.ceilingBox);
-		scene.removeMesh(this.floorBox);
+		scene.removeMesh(this.ceilingCylinder);
+		scene.removeMesh(this.floorCylinder);
 	}
 
 	update(deltaTime) {
 		this.location -= deltaTime * obstacleSpeed;
 
 		// Update the players physics:
-		this.ceilingBox.position.x = this.location;
-		this.floorBox.position.x = this.location;
-		this.ceilingBox.position.y -= deltaTime * ySpeed;
-		this.floorBox.position.y += deltaTime * ySpeed;
+		this.ceilingCylinder.position.x = this.location;
+		this.floorCylinder.position.x = this.location;
+		this.ceilingCylinder.position.y -= deltaTime * ySpeed;
+		this.floorCylinder.position.y += deltaTime * ySpeed;
 
 		if (this.location < 0 && this.location > -deltaTime * obstacleSpeed) {
 			addScore(1);
@@ -49,19 +49,19 @@ class Barrier extends GameObject {
 
 	assignLocations() {
 		// Pick a random center point
-		let height = -gameHeight + gapSize / 2 + Math.random() * (gameHeight - gapSize / 2) * 2;
-		this.ceilingBox.position.y = height + gapSize / 2 + 5;
-		this.floorBox.position.y = height - gapSize / 2 - 5;
-		this.ceilingBox.position.x = this.location;
-		this.floorBox.position.x = this.location;
+		let height = -gameHeight + 1.5 / 2 + Math.random() * (gameHeight - 1.5) * 2;
+		this.ceilingCylinder.position.y = height + gapSize / 2 + 5;
+		this.floorCylinder.position.y = height - gapSize / 2 - 5;
+		this.ceilingCylinder.position.x = this.location;
+		this.floorCylinder.position.x = this.location;
 	}
 
 	testCollision(playerHeight) {
 		if (this.location > -1 && this.location < 1) {
 			// In the same location as the player
 			if (
-				playerHeight + 5.5 > this.ceilingBox.position.y || // 5.5 is the half the height of the box + half the height of the player
-				playerHeight - 5.5 < this.floorBox.position.y
+				playerHeight + 5.5 > this.ceilingCylinder.position.y || // 5.5 is the half the height of the box + half the height of the player
+				playerHeight - 5.5 < this.floorCylinder.position.y
 			) {
 				return true;
 			}

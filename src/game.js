@@ -12,7 +12,6 @@ engine.runRenderLoop(function () {
 
 scene.registerBeforeRender(function () {
 	updateGame();
-	updateMusic();
 });
 
 // Watch for browser/canvas resize events

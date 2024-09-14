@@ -120,7 +120,7 @@ class MainMenu extends GameObject {
 		this.highScoreText.height = 1;
 
 		this.instructionsText = new BABYLON.GUI.TextBlock();
-		this.instructionsText.text = "press any key to play";
+		this.instructionsText.text = "click to play";
 		this.instructionsText.fontFamily = "Impact";
 		this.instructionsText.color = "#005994";
 		this.instructionsText.fontSize = 32;

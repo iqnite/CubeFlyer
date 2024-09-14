@@ -39,10 +39,6 @@ class Barrier extends GameObject {
 		this.ceilingBox.position.y -= deltaTime * ySpeed;
 		this.floorBox.position.y += deltaTime * ySpeed;
 
-		// Update depth based on music
-		this.ceilingBox.scaling.z = 1 + averageFrequency * 0.1;
-		this.floorBox.scaling.z = 1 + averageFrequency * 0.1;
-		
 		if (this.location < 0 && this.location > -deltaTime * obstacleSpeed) {
 			addScore(1);
 		}

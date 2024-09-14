@@ -45,6 +45,7 @@ class Player extends GameObject {
 			this.obstacleSpawnTimer = obstacleSpawnInterval;
 
 			createObject(new Barrier());
+			createObject(new Cloud());
 		}
 	}
 

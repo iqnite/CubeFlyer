@@ -11,7 +11,7 @@ class Barrier extends GameObject {
 		// This is hardcoded for now - should be some location off the right side of the screen
 		this.location = 15;
 
-		// Creates 2 boxes which will be used for the top and bottom obstacles,
+		// Creates 2 cylinders which will be used for the top and bottom obstacles,
 		// the floor will obscure the height of the object so we don't need to modify this much.
 		const cylinderOptions = { diameter: 1, height: 10};
 		this.ceilingCylinder = BABYLON.MeshBuilder.CreateCylinder("ceilingObstacle", cylinderOptions, scene);

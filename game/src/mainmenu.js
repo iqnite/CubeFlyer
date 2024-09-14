@@ -129,10 +129,21 @@ class MainMenu extends GameObject {
 		this.instructionsText.width = 0.5;
 		this.instructionsText.height = 1.2;
 
+		this.creditsText = new BABYLON.GUI.TextBlock();
+		this.creditsText.text = "Music: TheFatRat - Fire";
+		this.creditsText.fontFamily = "Impact";
+		this.creditsText.color = "white";
+		this.creditsText.fontSize = 20;
+		this.creditsText.verticalAlignment = BABYLON.GUI.TextBlock.VERTICAL_ALIGNMENT_TOP;
+		this.creditsText.horizontalAlignment = BABYLON.GUI.TextBlock.HORIZONTAL_ALIGNMENT_CENTER;
+		this.creditsText.width = 0.5;
+		this.creditsText.height = 1.5;
+
 		this.hudTexture.addControl(this.welcomeText);
 		this.hudTexture.addControl(this.greetingText);
 		this.hudTexture.addControl(this.highScoreText);
 		this.hudTexture.addControl(this.instructionsText);
+		this.hudTexture.addControl(this.creditsText);
 	}
 
 	hideUI() {
@@ -140,6 +151,7 @@ class MainMenu extends GameObject {
 		this.hudTexture.removeControl(this.greetingText);
 		this.hudTexture.removeControl(this.highScoreText);
 		this.hudTexture.removeControl(this.instructionsText);
+		this.hudTexture.removeControl(this.creditsText);
 	}
 }
 

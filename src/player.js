@@ -16,11 +16,11 @@ class Player extends GameObject {
 		this.setupInputs();
 
 		// Create the player object - a 1 unit square cube
-		const boxOptions = { width: 1, height: 1, depth: 1 };
-		this.playerMesh = BABYLON.MeshBuilder.CreateBox("bird", boxOptions, scene);
+		const sphereOptions = { diameter: 1 };
+		this.playerMesh = BABYLON.MeshBuilder.CreateSphere("bird", sphereOptions, scene);
 		this.playerMaterial = new BABYLON.StandardMaterial("Player Material", scene);
 		this.playerMesh.material = this.playerMaterial;
-		this.playerMesh.material.diffuseColor = BABYLON.Color3.White();
+		this.playerMesh.material.diffuseColor = BABYLON.Color3.Yellow();
 
 		resetScore();
 	}
@@ -45,6 +45,7 @@ class Player extends GameObject {
 			this.obstacleSpawnTimer = obstacleSpawnInterval;
 
 			createObject(new Barrier());
+			createObject(new Cloud());
 		}
 	}
 

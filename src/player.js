@@ -20,7 +20,7 @@ class Player extends GameObject {
 		this.playerMesh = BABYLON.MeshBuilder.CreateSphere("bird", sphereOptions, scene);
 		this.playerMaterial = new BABYLON.StandardMaterial("Player Material", scene);
 		this.playerMesh.material = this.playerMaterial;
-		this.playerMesh.material.diffuseColor = BABYLON.Color3.Yellow();
+		this.playerMesh.material.diffuseColor = new BABYLON.Color3(2.55, 1.45, 0);
 
 		resetScore();
 	}
@@ -64,10 +64,6 @@ class Player extends GameObject {
 			(gameObject) => gameObject.testCollision !== undefined,
 			(gameObject) => gameObject.testCollision(this.playerMesh.position.y)
 		);
-
-		if (collision) {
-			console.log("IMPACT");
-		}
 
 		return outOfBounds || collision;
 	}

@@ -25,7 +25,6 @@ var updateScoreText = function () {
 };
 
 var resetScore = function () {
-	console.log("Score reset at: " + score);
 	score = 0;
 	updateScoreText();
 };

@@ -35,7 +35,9 @@ class Player extends GameObject {
 		this.capVelocity(20);
 		this.playerMesh.position.y += this.velocity.y * deltaTime;
 		if (this.testGameOver()) {
-			this.endGame();
+			destroyObject(this);
+			this.flashBackgroundRed();
+			setTimeout(this.endGame, 500);
 		}
 
 		// To simplify game code the Player handles spawning obstacles (this makes it easier to track for collisions without writing a full handler)
@@ -52,9 +54,7 @@ class Player extends GameObject {
 	endGame() {
 		// This is used to identify and remove barrier objects from the scene
 		destroyMatchingObjects((gobj) => gobj.location !== undefined);
-
 		mainMenu.visible = true;
-		destroyObject(this);
 	}
 
 	testGameOver() {
@@ -75,6 +75,15 @@ class Player extends GameObject {
 	capVelocity(cap) {
 		this.velocity.y = Math.min(cap, Math.max(-cap, this.velocity.y));
 	}
+
+	flashBackgroundRed() {
+        const originalColor = scene.clearColor.clone();
+        scene.clearColor = new BABYLON.Color3(1, 0, 0); // Red color
+
+        setTimeout(() => {
+            scene.clearColor = originalColor;
+        }, 500); // Revert back after 500ms
+    }
 
 	setupInputs() {
 		deviceSourceManager = new BABYLON.DeviceSourceManager(scene.getEngine());

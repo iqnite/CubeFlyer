@@ -49,7 +49,7 @@ class Barrier extends GameObject {
 
 	assignLocations() {
 		// Pick a random center point
-		let height = -gameHeight + 1.5 / 2 + Math.random() * (gameHeight - 1.5) * 2;
+		let height = -gameHeight + 3.5 / 2 + Math.random() * (gameHeight - 2) * 2;
 		this.ceilingCylinder.position.y = height + gapSize / 2 + 5;
 		this.floorCylinder.position.y = height - gapSize / 2 - 5;
 		this.ceilingCylinder.position.x = this.location;

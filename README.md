@@ -27,7 +27,7 @@ http-server
 Finally, open a browser of your choice and open the following address:
 
 ```
-http://127.0.0.1:8080
+http://127.0.0.1:8080/game
 ```
 
 ## How to play

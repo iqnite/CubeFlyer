@@ -90,7 +90,7 @@ class MainMenu extends GameObject {
 
 		// Create a Text Block that can display the current score
 		this.welcomeText = new BABYLON.GUI.TextBlock();
-		this.welcomeText.text = "Flying Ball Game!";
+		this.welcomeText.text = "Cheese & Lava!";
 		this.welcomeText.fontFamily = "Impact";
 		this.welcomeText.color = "black";
 		this.welcomeText.fontSize = 72;

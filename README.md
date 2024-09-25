@@ -1,4 +1,4 @@
-# The Flying Ball Game!
+# Cheese & Lava!
 
 Welcome!
 

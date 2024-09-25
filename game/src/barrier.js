@@ -18,7 +18,8 @@ class Barrier extends GameObject {
 		this.floorCylinder = BABYLON.MeshBuilder.CreateCylinder("floorObstacle", cylinderOptions, scene);
 		// Materials impact how an object is rendered like color, texture etc.
 		let barrierMaterial = new BABYLON.StandardMaterial("Barrier Material", scene);
-		barrierMaterial.diffuseColor = BABYLON.Color3.Green();
+		barrierMaterial.diffuseColor = BABYLON.Color3.Yellow();
+		barrierMaterial.diffuseTexture = new BABYLON.Texture("https://iqnite.github.io/images/lavatexture.jpeg", scene);
 		this.ceilingCylinder.material = barrierMaterial;
 		this.floorCylinder.material = barrierMaterial;
 		this.assignLocations();

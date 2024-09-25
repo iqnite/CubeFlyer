@@ -4,6 +4,8 @@ var deviceSourceManager;
 
 const obstacleSpawnInterval = 3.5;
 
+const CHEESE_TEXTURE_URL = "https://iqnite.github.io/CubeFlyer/img/cheesetexture.webp";
+
 class Player extends GameObject {
 	constructor() {
 		super();
@@ -20,7 +22,7 @@ class Player extends GameObject {
 		this.playerMesh = BABYLON.MeshBuilder.CreateSphere("bird", sphereOptions, scene);
 		this.playerMaterial = new BABYLON.StandardMaterial("Player Material", scene);
 		this.playerMaterial.diffuseColor = new BABYLON.Color3(2.55, 1.45, 0);
-		this.playerMaterial.diffuseTexture = new BABYLON.Texture("https://iqnite.github.io/images/cheesetexture.webp", scene);
+		this.playerMaterial.diffuseTexture = new BABYLON.Texture(CHEESE_TEXTURE_URL, scene);
 		this.playerMesh.material = this.playerMaterial;
 
 		resetScore();

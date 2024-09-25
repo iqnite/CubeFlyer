@@ -2,6 +2,8 @@ var obstacleSpeed = 1.5; // Changing this will impact how quickly obstacles in t
 var ySpeed = 0.5; // Changing this will impact how quickly the obstacles tighten.
 var gapSize = 12.5; // This determines the size of the gap to create between the floor and ceiling.
 
+const LAVA_TEXTURE_URL = "https://iqnite.github.io/CubeFlyer/img/lavatexture.jpeg";
+
 class Barrier extends GameObject {
 	constructor() {
 		super();
@@ -19,7 +21,7 @@ class Barrier extends GameObject {
 		// Materials impact how an object is rendered like color, texture etc.
 		let barrierMaterial = new BABYLON.StandardMaterial("Barrier Material", scene);
 		barrierMaterial.diffuseColor = BABYLON.Color3.Yellow();
-		barrierMaterial.diffuseTexture = new BABYLON.Texture("https://iqnite.github.io/images/lavatexture.jpeg", scene);
+		barrierMaterial.diffuseTexture = new BABYLON.Texture(LAVA_TEXTURE_URL, scene);
 		this.ceilingCylinder.material = barrierMaterial;
 		this.floorCylinder.material = barrierMaterial;
 		this.assignLocations();

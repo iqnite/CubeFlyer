@@ -4,7 +4,7 @@ Welcome!
 
 This is a small Flappy-Bird-style game made for the CubeFlyer Game Challenge. Thanks to @MetzinAround for the original!
 
-Check the **Releases** page to see the changes.
+Check out the **Releases** page to see the changes.
 
 ## How to start the game
 

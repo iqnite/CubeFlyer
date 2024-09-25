@@ -13,7 +13,7 @@ class Barrier extends GameObject {
 
 		// Creates 2 cylinders which will be used for the top and bottom obstacles,
 		// the floor will obscure the height of the object so we don't need to modify this much.
-		const cylinderOptions = { diameter: 1, height: 10};
+		const cylinderOptions = { diameter: 1, height: 10 };
 		this.ceilingCylinder = BABYLON.MeshBuilder.CreateCylinder("ceilingObstacle", cylinderOptions, scene);
 		this.floorCylinder = BABYLON.MeshBuilder.CreateCylinder("floorObstacle", cylinderOptions, scene);
 		// Materials impact how an object is rendered like color, texture etc.
@@ -45,6 +45,15 @@ class Barrier extends GameObject {
 		}
 		if (this.location < -25) {
 			destroyObject(this);
+		}
+
+		// Update cloud size based on music frequency
+		if (analyser) {
+			let frequencyData = analyser.getByteFrequencyData();
+			let averageFrequency = frequencyData.reduce((a, b) => a + b, 0) / frequencyData.length;
+			let scale = 1 + averageFrequency / 75; // Scale factor based on frequency
+			this.ceilingCylinder.scaling = new BABYLON.Vector3(scale, 1, scale);
+			this.floorCylinder.scaling = new BABYLON.Vector3(scale, 1, scale);
 		}
 	}
 

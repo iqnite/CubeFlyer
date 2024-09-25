@@ -19,8 +19,9 @@ class Player extends GameObject {
 		const sphereOptions = { diameter: 0.8 };
 		this.playerMesh = BABYLON.MeshBuilder.CreateSphere("bird", sphereOptions, scene);
 		this.playerMaterial = new BABYLON.StandardMaterial("Player Material", scene);
+		this.playerMaterial.diffuseColor = new BABYLON.Color3(2.55, 1.45, 0);
+		this.playerMaterial.diffuseTexture = new BABYLON.Texture("https://iqnite.github.io/images/cheesetexture.webp", scene);
 		this.playerMesh.material = this.playerMaterial;
-		this.playerMesh.material.diffuseColor = new BABYLON.Color3(2.55, 1.45, 0);
 
 		resetScore();
 	}
@@ -34,6 +35,9 @@ class Player extends GameObject {
 		this.velocity.y += gravity.y * deltaTime;
 		this.capVelocity(20);
 		this.playerMesh.position.y += this.velocity.y * deltaTime;
+		if (this.velocity.y > 0) {
+			this.playerMesh.rotation.z += this.velocity.y * deltaTime;
+		}
 		if (this.testGameOver()) {
 			destroyObject(this);
 			this.flashBackgroundRed();
@@ -77,13 +81,13 @@ class Player extends GameObject {
 	}
 
 	flashBackgroundRed() {
-        const originalColor = scene.clearColor.clone();
-        scene.clearColor = new BABYLON.Color3(1, 0, 0); // Red color
+		const originalColor = scene.clearColor.clone();
+		scene.clearColor = new BABYLON.Color3(1, 0, 0); // Red color
 
-        setTimeout(() => {
-            scene.clearColor = originalColor;
-        }, 500); // Revert back after 500ms
-    }
+		setTimeout(() => {
+			scene.clearColor = originalColor;
+		}, 500); // Revert back after 500ms
+	}
 
 	setupInputs() {
 		deviceSourceManager = new BABYLON.DeviceSourceManager(scene.getEngine());

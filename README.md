@@ -40,7 +40,7 @@ BabylonJS libraries are obtained through the BabylonJS CDN, so packages need to 
 
 Click or press <kbd>Space</kbd> to jump.
 
-Don't bump into the green pipes.
+Don't bump into the orange lava pipes.
 
 The pipes get narrower as you approach them.
 

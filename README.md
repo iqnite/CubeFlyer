@@ -10,11 +10,11 @@ Check out the **Releases** page to see the changes.
 
 ### Local
 
-To launch the game on your local machine, simply open `game/index.html` in your browser.
+To launch the game on your local machine, open `game/index.html` in your browser.
 
 ### GitHub Codespaces
 
-To launch the game in a codespace, you first need to install a HTTP Server:
+To launch the game in a codespace, you first need to install an HTTP Server:
 
 ```
 npm i -g http-server
@@ -26,11 +26,13 @@ Once it's installed, start it:
 http-server
 ```
 
-Finally, open a browser of your choice and open the following address:
+Finally, open the following address in your browser:
 
 ```
 http://127.0.0.1:8080/game
 ```
+
+BabylonJS libraries are obtained through the BabylonJS CDN, so packages need to be installed. Textures are downloaded from the iqnite/CubeFlyer GitHub Page.
 
 ## How to play
 

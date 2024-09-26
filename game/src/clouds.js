@@ -33,12 +33,7 @@ class Cloud extends GameObject {
 		}
 
 		// Update cloud size based on music frequency
-		if (analyser) {
-			let frequencyData = analyser.getByteFrequencyData();
-			let averageFrequency = frequencyData.reduce((a, b) => a + b, 0) / frequencyData.length;
-			let scale = 1 + averageFrequency / 75; // Scale factor based on frequency
-			this.cube.scaling = new BABYLON.Vector3(scale, scale, scale);
-		}
+		this.cube.scaling = new BABYLON.Vector3(music.scale, music.scale, music.scale);
 	}
 
 	assignLocations() {

@@ -17,7 +17,7 @@ class Player extends GameObject {
 		this.velocity = new BABYLON.Vector3(0, 0);
 		this.setupInputs();
 
-		// Create the player object - a 1 unit square cube
+		// Create the player object
 		const sphereOptions = { diameter: 0.7 };
 		this.playerMesh = BABYLON.MeshBuilder.CreateSphere("bird", sphereOptions, scene);
 		this.playerMaterial = new BABYLON.StandardMaterial("Player Material", scene);
@@ -25,10 +25,20 @@ class Player extends GameObject {
 		this.playerMaterial.diffuseTexture = new BABYLON.Texture(CHEESE_TEXTURE_URL, scene);
 		this.playerMesh.material = this.playerMaterial;
 
+		this.particleSystem = new BABYLON.ParticleSystem("particles", 2000, scene);
+		this.particleSystem.particleTexture = this.playerMaterial.diffuseTexture;
+		this.particleSystem.emitter = this.playerMesh;
+		this.particleSystem.minSize = 0.1;
+		this.particleSystem.maxSize = 0.3;
+		this.particleSystem.direction1 = new BABYLON.Vector3(-1, 0, 0);
+		this.particleSystem.direction2 = new BABYLON.Vector3(-1, 0, 0);
+		this.particleSystem.start();
+
 		resetScore();
 	}
 
 	onDestroy() {
+		this.particleSystem.stop();
 		scene.removeMesh(this.playerMesh);
 	}
 

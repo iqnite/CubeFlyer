@@ -50,13 +50,8 @@ class Barrier extends GameObject {
 		}
 
 		// Update cloud size based on music frequency
-		if (analyser) {
-			let frequencyData = analyser.getByteFrequencyData();
-			let averageFrequency = frequencyData.reduce((a, b) => a + b, 0) / frequencyData.length;
-			let scale = 1 + averageFrequency / 75; // Scale factor based on frequency
-			this.ceilingCylinder.scaling = new BABYLON.Vector3(scale, 1, scale);
-			this.floorCylinder.scaling = new BABYLON.Vector3(scale, 1, scale);
-		}
+		this.ceilingCylinder.scaling = new BABYLON.Vector3(music.scale, 1, music.scale);
+		this.floorCylinder.scaling = new BABYLON.Vector3(music.scale, 1, music.scale);
 	}
 
 	assignLocations() {

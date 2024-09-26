@@ -20,7 +20,7 @@ class Music extends GameObject {
         }, { once: true });
     }
 
-    update() {
+    update(deltaTime) {
         if (!this.analyser) return;
         let frequencyData = this.analyser.getByteFrequencyData();
         let averageFrequency = frequencyData.reduce((a, b) => a + b, 0) / frequencyData?.length;

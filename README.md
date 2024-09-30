@@ -6,6 +6,15 @@ This is a small Flappy-Bird-style game made for the CubeFlyer Game Challenge. Th
 
 Check out the **Releases** page to see the changes.
 
+## Major changes since the original
+
+- Barriers now get narrower as the player gets closer to them
+- Added music
+- Obstacles and clouds now scale following the rhythm of the music
+- Added high score system (saves best score to local storage)
+- Fixed score
+- Changed visuals
+
 ## How to start the game
 
 ### Local

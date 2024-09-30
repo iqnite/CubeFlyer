@@ -4,9 +4,9 @@ Welcome!
 
 This is a small Flappy-Bird-style game made for the CubeFlyer Game Challenge. Thanks to @MetzinAround for the original!
 
-Check out the **Releases** page to see the changes.
-
 ## Major changes since the original
+
+Check out the **Releases** page to see the changes.
 
 - Barriers now get narrower as the player gets closer to them
 - Added music
